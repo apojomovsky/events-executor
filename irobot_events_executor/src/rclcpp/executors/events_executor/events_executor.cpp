@@ -29,7 +29,7 @@ EventsExecutor::EventsExecutor(
 
   // Create timers manager
   std::function<void(void *)> timer_on_ready_cb = nullptr;
-  if (execute_timers_separate_thread) {
+  if (!execute_timers_separate_thread) {
     timer_on_ready_cb = [this](const void * timer_id) {
         ExecutorEvent event = {timer_id, -1, ExecutorEventType::TIMER_EVENT, 1};
         this->events_queue_->enqueue(event);
