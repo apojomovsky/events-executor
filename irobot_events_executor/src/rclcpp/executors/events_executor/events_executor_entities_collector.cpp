@@ -375,7 +375,6 @@ EventsExecutorEntitiesCollector::get_client(const void * client_id)
 
     // The client expired, remove from map
     weak_clients_map_.erase(it);
-    RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Client expired! ID: %p", client_id);
   }
   return nullptr;
 }
@@ -397,7 +396,6 @@ EventsExecutorEntitiesCollector::get_service(const void * service_id)
 
     // The service expired, remove from map
     weak_services_map_.erase(it);
-    RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Service expired! ID: %p", service_id);
   }
   return nullptr;
 }
@@ -419,7 +417,6 @@ EventsExecutorEntitiesCollector::get_waitable(const void * waitable_id)
 
     // The waitable expired, remove from map
     weak_waitables_map_.erase(it);
-    RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Waitable expired! ID: %p", waitable_id);
   }
   return nullptr;
 }
