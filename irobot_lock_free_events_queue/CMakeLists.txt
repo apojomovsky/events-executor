@@ -11,7 +11,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 find_package(ament_cmake REQUIRED)
-find_package(irobot_events_executor REQUIRED)
+find_package(rclcpp REQUIRED)
 
 add_library(irobot_lock_free_events_queue INTERFACE)
 
@@ -22,7 +22,6 @@ target_include_directories(irobot_lock_free_events_queue
 )
 
 ament_target_dependencies(irobot_lock_free_events_queue INTERFACE
-  "irobot_events_executor"
   "rclcpp"
 )
 
@@ -44,6 +43,5 @@ ament_export_include_directories("include/${PROJECT_NAME}")
 #ament_export_targets(${PROJECT_NAME})
 
 # Specific order: dependents before dependencies
-ament_export_dependencies(irobot_events_executor)
 ament_export_dependencies(rclcpp)
 ament_package()
